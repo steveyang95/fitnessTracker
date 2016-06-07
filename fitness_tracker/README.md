@@ -13,3 +13,7 @@ This a fitness tracker application that track's a baby’s height and weight.
 1. Have a view for baby + favorite animals with animals’ height
 1. Red + Green box
 1. Title should be “Fitness Tracker”
+
+## When working
+1. Please work on a separate branch and never on the master branch when working on features.
+1. Push the branch and create a pull request when it is done.
