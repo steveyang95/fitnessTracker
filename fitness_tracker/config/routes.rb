@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'static_pages#home'
 
-  resources :humans
+  resources :babies
   resources :units
 
   # You can have the root of your site routed with "root"

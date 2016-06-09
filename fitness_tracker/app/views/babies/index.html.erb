@@ -1,0 +1,13 @@
+<h1>Listing Babies</h1>
+ 
+<table>
+  <tr>
+    <th>First Name / Last Name</th>
+  </tr>
+ 
+  <% @babies.each do |baby| %>
+    <tr>
+      <td><%= link_to "#{baby.first_name} #{baby.last_name}", baby_path(baby.id) %></td>
+    </tr>
+  <% end %>
+</table>
