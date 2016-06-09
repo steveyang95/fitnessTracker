@@ -1,3 +1,2 @@
-class Unit
-
+class Unit < ActiveRecord::Base
 end
