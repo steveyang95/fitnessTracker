@@ -1,4 +1,6 @@
 class BabiesController < ApplicationController
+  has_many :animals
+  
   def new
   	@baby = Baby.new
   end
