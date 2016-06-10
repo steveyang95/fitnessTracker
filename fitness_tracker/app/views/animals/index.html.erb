@@ -1,2 +1,13 @@
-<h1>Animals#index</h1>
-<p>Find me in app/views/animals/index.html.erb</p>
+<h1>Listing Animals</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @animals.each do |animal| %>
+    <tr>
+      <td><%= link_to "#{animal.name}", animal_path(animal.id) %></td>
+    </tr>
+  <% end %>
+</table>
