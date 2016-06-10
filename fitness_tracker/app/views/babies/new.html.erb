@@ -6,12 +6,31 @@
     <%= form_for :baby, url: babies_path do |f| %>
       <%= f.label 'First Name' %>
       <%= f.text_field :first_name, class: 'form-control' %>
+      <br>
 
       <%= f.label 'Last Name' %>
       <%= f.text_field :last_name, class: 'form-control' %>
+      <br>
 
-      <%= f.label 'birthday' %>
+      <%= f.label 'Birthday' %>
       <%= f.text_field :birthday, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Height' %>
+      <p> Please keep height in either cm or inches. Not feet. </p>
+      <%= f.number_field :height, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Weight' %>
+      <p> Please keep weight in either kg or lbs. </p>
+      <%= f.number_field :weight, class: 'form-control' %>
+      <br>
+
+      <p>
+        <%= f.label 'Metric?' %> <br>
+        Are the height and weight units in Metric System (e.g. meters, grams)?
+        <%= f.check_box :metric, class: 'form-control' %>
+      </p> 
 
       <%= f.submit "Create Baby", class: "btn btn-primary" %>
     <% end %>
