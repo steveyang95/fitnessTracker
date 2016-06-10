@@ -1,2 +1,30 @@
-<h1>Animals#new</h1>
-<p>Find me in app/views/animals/new.html.erb</p>
+<% provide(:title, 'Add Animal') %>
+<h1>Add Animal</h1>
+
+<p> All units for animlas will be in the METRIC system! </p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :animal, url: animals_path do |f| %>
+      <%= f.label 'Name' %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Description' %>
+      <%= f.text_field :description, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Height' %>
+      <p> Please keep height in either cm. </p>
+      <%= f.number_field :height, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Weight' %>
+      <p> Please keep weight in either kg. </p>
+      <%= f.number_field :weight, class: 'form-control' %>
+      <br>
+
+      <%= f.submit "Add Animal", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
