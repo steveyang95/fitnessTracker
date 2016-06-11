@@ -19,15 +19,19 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
+    # @temperature = Unit.create({value: @baby.temperature, unit_name: "T", metric: @baby.metric})
+    @height = Unit.create({value: @baby.height, unit_name: "H", metric: @baby.metric})
+    @weight = Unit.create({value: @baby.height, unit_name: "W", metric: @baby.metric})
+
   end
 
   private
 
-  # A stronng params for Baby
+  # A strong params for Baby
   # first_name is a string, last_name is a string, birthday is a string, 
   # height is an integer, weight is an integer, metric is a boolean
   def baby_params
-  	params.require(:baby).permit(:first_name, :last_name, :birthday, :height, :weight, :metric)
+  	params.require(:baby).permit(:first_name, :last_name, :birthday, :height, :weight, :metric, :temperature)
   end
 
 end
