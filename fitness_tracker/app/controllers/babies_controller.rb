@@ -28,10 +28,10 @@ class BabiesController < ApplicationController
   private
 
   # A strong params for Baby
-  # first_name is a string, last_name is a string, birthday is a string, 
+  # first_name is a string, last_name is a string,
   # height is an integer, weight is an integer, metric is a boolean
   def baby_params
-  	params.require(:baby).permit(:first_name, :last_name, :birthday, :height, :weight, :metric, :temperature)
+  	params.require(:baby).permit(:first_name, :last_name, :height, :weight, :metric, :temperature)
   end
 
 end
