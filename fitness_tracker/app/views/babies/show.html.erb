@@ -4,6 +4,10 @@
 	<p> 
 		<%= @baby.first_name %>'s height: <%= @baby.height %><br>
 		<%= @baby.first_name %>'s weight: <%= @baby.weight %><br>
-		<%= @height.value %>
+		The height is <%= @height.value %><br>
+		Baby's metric is <%= @baby.metric %><br>
+		Inches to centimeter <%= @height.inch_to_centimeter(@baby.height) %><br>
+      	centimeter to inches <%= @height.centimeter_to_inch(@baby.height) %><br>
+
 	</p>
 </p>

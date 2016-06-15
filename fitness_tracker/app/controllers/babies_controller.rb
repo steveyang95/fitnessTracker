@@ -23,6 +23,12 @@ class BabiesController < ApplicationController
     @height = Unit.create({value: @baby.height, unit_name: "H", metric: @baby.metric})
     @weight = Unit.create({value: @baby.height, unit_name: "W", metric: @baby.metric})
 
+    if @baby.metric 
+      @height.inch_to_centimeter(@baby.height)
+    else
+      @height.centimeter_to_inch(@baby.height)
+    end
+
   end
 
   private
