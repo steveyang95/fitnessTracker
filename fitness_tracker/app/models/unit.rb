@@ -20,11 +20,11 @@ class Unit < ActiveRecord::Base
     self.value = (value / Unit::POUND).round(2)
   end
 
-  def celsium_to_fahrenheit(value)
+  def celsius_to_fahrenheit(value)
     self.value = (value * Unit::FAHRENHEIT).round(1)
   end
 
-  def fahrenheit_to_celsium(value)
+  def fahrenheit_to_celsius(value)
     self.value = (value / Unit::FAHRENHEIT).round(1)
   end
 
