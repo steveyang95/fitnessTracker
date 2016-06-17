@@ -1,3 +1,4 @@
+
 <p>
 	<%= @baby.first_name %>
 	<%= @baby.last_name %><br>
@@ -6,16 +7,14 @@
 		<%= @baby.first_name %>'s weight: <%= @baby.weight %><br>
 		<br>
 		The height is <%= @height.value %><br>
-		The weight is <%= @weight.value %><br>
-		Baby's metric is <%= @baby.metric %><br>
-		<br>
-		Metric = True<br>
-		Inches to centimeter <%= @height.inch_to_centimeter(@baby.height) %><br>
-      	Pound to kilogram <%= @weight.pound_to_kilogram(@baby.weight) %><br>
-      	<br>
-      	Metric = False<br>
-      	Centimeter to inches <%= @height.centimeter_to_inch(@baby.height) %><br>
-      	Kilogram to pound <%= @weight.kilogram_to_pound(@baby.weight) %><br>
-
+		Are all the units in metric? <%= @baby.metric %><br>
+		Imperial: 
+			<br> <%= @height_imperial %> in
+			<br> <%= @weight_imperial %> lbs
+			<br> <%= @temperature_imperial %> F <br>
+      	Metric:
+      		<br> <%= @height_metric %> cm 
+      		<br> <%= @weight_metric %> kg
+      		<br> <%= @temperature_metric %> C 
 	</p>
 </p>
