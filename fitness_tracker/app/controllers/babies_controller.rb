@@ -19,16 +19,16 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
-    # @temperature = Unit.create({value: @baby.temperature, unit_name: "T", metric: @baby.metric})
     @height = Unit.create({value: @baby.height, unit_name: "H", metric: @baby.metric})
-    @weight = Unit.create({value: @baby.height, unit_name: "W", metric: @baby.metric})
+    @weight = Unit.create({value: @baby.weight, unit_name: "W", metric: @baby.metric})
+    @temperature = Unit.create({value: @baby.temperature, unit_name: "T", metric: @baby.metric})
 
-    if @baby.metric 
-      @height.inch_to_centimeter(@baby.height)
-    else
-      @height.centimeter_to_inch(@baby.height)
-    end
-
+    @height_metric = @baby.metric ? @height.value : @height.inch_to_centimeter(@baby.height)
+    @height_imperial = @baby.metric ? @height.centimeter_to_inch(@baby.height) : @height.value
+    @weight_metric = @baby.metric ? @weight.value : @weight.pound_to_kilogram(@weight.value)
+    @weight_imperial = @baby.metric ? @weight.kilogram_to_pound(@weight.value) : @weight.value
+    @temperature_metric = @baby.metric ? @temperature.value : @temperature.fahrenheit_to_celsium(@temperature.value)
+    @temperature_imperial = @baby.metric ? @temperature.celsium_to_fahrenheit(@temperature.value) : @temperature.value
   end
 
   private

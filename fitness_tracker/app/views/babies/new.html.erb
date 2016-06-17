@@ -12,21 +12,26 @@
       <%= f.text_field :last_name, class: 'form-control' %>
       <br>
 
-      <%= f.label 'Height' %>
-      <p> Please keep height in either cm or inches. Not feet. </p>
-      <%= f.number_field :height, class: 'form-control' %>
-      <br>
-
-      <%= f.label 'Weight' %>
-      <p> Please keep weight in either kg or lbs. </p>
-      <%= f.number_field :weight, class: 'form-control' %>
-      <br>
-
       <p>
         <%= f.label 'Metric?' %> <br>
         Are the height and weight units in Metric System (e.g. meters, grams)?
         <%= f.check_box :metric, class: 'form-control' %>
       </p> 
+
+      <%= f.label 'Height' %>
+      <p> Please keep height in either cm or inches. Not feet. Follow the metric system you have stated above! </p>
+      <%= f.number_field :height, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Weight' %>
+      <p> Please keep weight in either kg or lbs. Follow the metric system you have stated above! </p>
+      <%= f.number_field :weight, class: 'form-control' %>
+      <br>
+
+      <%= f.label 'Temperature' %>
+      <p> Please keep temperature in either Fahrenheit or Celcius. Follow the metric system you have stated above! </p>
+      <%= f.number_field :temperature, class: 'form-control' %>
+      <br>
 
       <%= f.submit "Create Baby", class: "btn btn-primary" %>
     <% end %>
