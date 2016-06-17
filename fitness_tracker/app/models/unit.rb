@@ -21,11 +21,11 @@ class Unit < ActiveRecord::Base
   end
 
   def celsius_to_fahrenheit(value)
-    self.value = (value * Unit::FAHRENHEIT).round(1)
+    self.value = ((value * 9/5) + 32).round(1)
   end
 
   def fahrenheit_to_celsius(value)
-    self.value = (value / Unit::FAHRENHEIT).round(1)
+    self.value = ((value - 32) * 5/9).round(1)
   end
 
 
@@ -39,7 +39,5 @@ class Unit < ActiveRecord::Base
   KILOGRAM = 1
   POUND = 2.2 * 1
 
-  CELSIUS = 1
-  FAHRENHEIT = 1 * 9/5 + 32
 
 end

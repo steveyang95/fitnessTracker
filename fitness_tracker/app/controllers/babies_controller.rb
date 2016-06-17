@@ -23,12 +23,12 @@ class BabiesController < ApplicationController
     @weight = Unit.create({value: @baby.weight, unit_name: "W", metric: @baby.metric})
     @temperature = Unit.create({value: @baby.temperature, unit_name: "T", metric: @baby.metric})
 
-    @height_metric = @baby.metric ? @height.value : @height.inch_to_centimeter(@baby.height)
-    @height_imperial = @baby.metric ? @height.centimeter_to_inch(@baby.height) : @height.value
-    @weight_metric = @baby.metric ? @weight.value : @weight.pound_to_kilogram(@weight.value)
-    @weight_imperial = @baby.metric ? @weight.kilogram_to_pound(@weight.value) : @weight.value
-    @temperature_metric = @baby.metric ? @temperature.value : @temperature.fahrenheit_to_celsium(@temperature.value)
-    @temperature_imperial = @baby.metric ? @temperature.celsium_to_fahrenheit(@temperature.value) : @temperature.value
+    @height_metric = @baby.metric ? @baby.height : @height.inch_to_centimeter(@baby.height)
+    @height_imperial = @baby.metric ? @height.centimeter_to_inch(@baby.height) : @baby.height
+    @weight_metric = @baby.metric ? @baby.weight : @weight.pound_to_kilogram(@weight.value)
+    @weight_imperial = @baby.metric ? @weight.kilogram_to_pound(@weight.value) : @baby.weight
+    @temperature_metric = @baby.metric ? @baby.temperature : @temperature.fahrenheit_to_celsius(@temperature.value)
+    @temperature_imperial = @baby.metric ? @temperature.celsius_to_fahrenheit(@temperature.value) : @baby.temperature
   end
 
   private
