@@ -7,7 +7,7 @@
  
   <% @babies.each do |baby| %>
     <tr>
-      <td><%= link_to "#{baby.first_name} #{baby.last_name}", baby_path(baby.id) %></td>
+      <td><%= link_to "#{baby.first_name} #{baby.last_name}", baby_path(baby.id, metric: baby.metric) %></td>
     </tr>
   <% end %>
 </table>

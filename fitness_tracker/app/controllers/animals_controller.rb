@@ -1,5 +1,7 @@
 class AnimalsController < ApplicationController
-	
+
+	include ConversionHelper
+
   def new
     @animal = Animal.new
   end
@@ -19,13 +21,16 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
+    @metric = is_metric?(params[:metric])
+    @height = convert_height(@animal, @metric)
+    @weight = convert_weight(@animal, @metric)
   end
 
   private
 
   # A stronng params for Animal
   def animal_params
-    params.require(:animal).permit(:name, :description, :height, :weight)
+    params.require(:animal).permit(:name, :description, :height, :weight, :metric)
   end
 
 end

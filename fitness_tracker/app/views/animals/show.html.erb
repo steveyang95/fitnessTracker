@@ -1,8 +1,21 @@
+<%= link_to "Metric", animal_path(@animal.id, metric: true) %>
+<%= link_to "Imperial", animal_path(@animal.id, metric: false) %>
 <p>
 	<%= @animal.name %><br>
 	<%= @animal.description %><br>
 	<p> 
 		Height: <%= @animal.height %><br>
 		Weight: <%= @animal.weight %>
+	</p>
+	<p> 
+		<% if not @metric %>
+			Imperial: <br>
+				<%= @animal.name %>'s height: <%= @height %> in <br>
+				<%= @animal.name %>'s weight: <%= @weight %> lbs <br>
+		<% else %>
+	      	Metric: <br>
+	      		<%= @animal.name %>'s height: <%= @height %> cm <br>
+	      		<%= @animal.name %>'s weight: <%= @weight %> kg <br>
+	     <% end %>
 	</p>
 </p>
