@@ -7,7 +7,7 @@
  
   <% @animals.each do |animal| %>
     <tr>
-      <td><%= link_to "#{animal.name}", animal_path(animal.id) %></td>
+      <td><%= link_to "#{animal.name}", animal_path(animal.id, metric: true) %></td>
     </tr>
   <% end %>
 </table>

@@ -1,19 +1,20 @@
+<%= link_to "Metric", baby_path(@baby.id, metric: true) %>
+<%= link_to "Imperial", baby_path(@baby.id, metric: false) %>
 
 <p>
 	<%= @baby.first_name %>
 	<%= @baby.last_name %><br>
 	<p> 
-		<%= @baby.first_name %>'s height: <%= @baby.height %><br>
-		<%= @baby.first_name %>'s weight: <%= @baby.weight %><br>
-		<br>
-		Are all the units in metric? <%= @baby.metric %><br>
-		Imperial: 
-			<br> <%= @height_imperial %> in
-			<br> <%= @weight_imperial %> lbs
-			<br> <%= @temperature_imperial %> F <br>
-      	Metric:
-      		<br> <%= @height_metric %> cm 
-      		<br> <%= @weight_metric %> kg
-      		<br> <%= @temperature_metric %> C 
+		<% if not @metric %>
+			Imperial: <br>
+				<%= @baby.first_name %>'s height: <%= @height %> in <br>
+				<%= @baby.first_name %>'s weight: <%= @weight %> lbs <br>
+				<%= @baby.first_name %>'s temperature: <%= @temperature %> F degrees<br>
+		<% else %>
+	      	Metric: <br>
+	      		<%= @baby.first_name %>'s height: <%= @height %> cm <br>
+	      		<%= @baby.first_name %>'s weight: <%= @weight %> kg <br>
+	      		<%= @baby.first_name %>'s temperature: <%= @temperature %> C degrees<br>
+	     <% end %>
 	</p>
 </p>

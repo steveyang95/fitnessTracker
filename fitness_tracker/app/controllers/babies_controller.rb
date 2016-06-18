@@ -1,5 +1,7 @@
 class BabiesController < ApplicationController
   
+  include ConversionHelper
+
   def new
   	@baby = Baby.new
   end
@@ -19,16 +21,10 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
-    @height = Unit.create({value: @baby.height, unit_name: "H", metric: @baby.metric})
-    @weight = Unit.create({value: @baby.weight, unit_name: "W", metric: @baby.metric})
-    @temperature = Unit.create({value: @baby.temperature, unit_name: "T", metric: @baby.metric})
-
-    @height_metric = @baby.metric ? @baby.height : @height.inch_to_centimeter(@baby.height)
-    @height_imperial = @baby.metric ? @height.centimeter_to_inch(@baby.height) : @baby.height
-    @weight_metric = @baby.metric ? @baby.weight : @weight.pound_to_kilogram(@weight.value)
-    @weight_imperial = @baby.metric ? @weight.kilogram_to_pound(@weight.value) : @baby.weight
-    @temperature_metric = @baby.metric ? @baby.temperature : @temperature.fahrenheit_to_celsius(@temperature.value)
-    @temperature_imperial = @baby.metric ? @temperature.celsius_to_fahrenheit(@temperature.value) : @baby.temperature
+    @metric = is_metric?(params[:metric])
+    @height = convert_height(@baby, @metric)
+    @weight = convert_weight(@baby, @metric)
+    @temperature = convert_temperature(@baby, @metric)
   end
 
   private
