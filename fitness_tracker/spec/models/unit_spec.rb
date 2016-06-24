@@ -43,9 +43,13 @@ RSpec.describe Unit, :type => :model do
 	    expect(height.inch_to_centimeter(height.value) == 30).to be false
 		end
 
-  	it "convert from inch to centimeter - passing object" do
+  	it "convert from inch to centimeter - passing wrong object" do
   		height = Unit.create({value: 10, unit_name: "H", metric: true})
 	    expect{height.inch_to_centimeter(height) == 25.4}.to raise_error(NoMethodError)
+		end
+
+	it "check constant" do
+	    expect(Unit::YARD == 91.44).to be true
 		end
   end
 end
