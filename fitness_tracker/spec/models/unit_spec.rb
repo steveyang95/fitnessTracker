@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Unit, :type => :model do
-  describe "Unit Conversion" do
+  describe "Conversion" do
   	it "convert from inch to centimeter" do
   		height = Unit.create({value: 10, unit_name: "H", metric: true})
 	    height.inch_to_centimeter(height.value)
@@ -38,5 +38,14 @@ RSpec.describe Unit, :type => :model do
 	    expect(temperature.value).to eq(0)
 		end
 
+  	it "convert from inch to centimeter - wrong result" do
+  		height = Unit.create({value: 10, unit_name: "H", metric: true})
+	    expect(height.inch_to_centimeter(height.value) == 30).to be false
+		end
+
+  	it "convert from inch to centimeter - passing object" do
+  		height = Unit.create({value: 10, unit_name: "H", metric: true})
+	    expect{height.inch_to_centimeter(height) == 25.4}.to raise_error(NoMethodError)
+		end
   end
 end
