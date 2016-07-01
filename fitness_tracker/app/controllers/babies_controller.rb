@@ -25,6 +25,7 @@ class BabiesController < ApplicationController
     @height = convert_height(@baby, @metric)
     @weight = convert_weight(@baby, @metric)
     @temperature = convert_temperature(@baby, @metric)
+    @animals = Animal.all
   end
 
   private

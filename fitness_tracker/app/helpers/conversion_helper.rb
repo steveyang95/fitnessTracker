@@ -3,9 +3,10 @@ module ConversionHelper
   
   def convert_height(object, new_metric)
     height = Unit.create({value: object.height, unit_name: "H", metric: object.metric})
-    if new_metric
+    #new_metric is bool and is metric passed into the shell
+    if new_metric  # if we want only in metric system
       value = object.metric ? object.height : height.inch_to_centimeter(object.height)
-    else
+    else # if we want only in imperial
       value = object.metric ? height.centimeter_to_inch(object.height) : object.height
     end
     value

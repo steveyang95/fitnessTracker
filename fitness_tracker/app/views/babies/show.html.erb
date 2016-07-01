@@ -18,3 +18,10 @@
 	     <% end %>
 	</p>
 </p>
+
+
+<% @animals.each do |animal| %>
+	<%= render :partial => "animals/show_animal", :locals => { :a => animal} %>
+<% end %>
+
+
