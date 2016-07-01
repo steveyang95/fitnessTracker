@@ -1,0 +1,31 @@
+ <p>
+ 	<p>
+ 	height: 
+ 		<% if not a.taller_than_baby?(@baby, @metric)%>
+    		<%=  image_tag("GreenBox.jpg", :alt=> "Green Box", :size => '10x10') %><br>
+    	<% else %>
+			<%=  image_tag("RedBox.jpg", :alt=> "Red Box", :size => '10x10')  %><br>
+		<% end %>
+ 	Weight: 
+    	<% if not a.heavier_than_baby?(@baby, @metric) %> 
+        	<%=  image_tag("GreenBox.jpg", :alt=> "Green Box", :size => '10x10')  %><br>
+    	<% else %>
+			<%=  image_tag("RedBox.jpg", :alt=> "Red Box", :size => '10x10')  %><br>
+		<% end %>
+
+	</p>
+	<%= a.name %><br>
+	<%= a.description %><br>
+
+	<p> 
+		<% if not @metric %>
+			Imperial: <br>
+				<%= a.name %>'s height: <%= a.get_imperial_height(@metric) %> in <br>
+				<%= a.name %>'s weight: <%= a.get_imperial_weight(@metric) %> lbs <br>
+		<% else %>
+	      	Metric: <br>
+	      		<%= a.name %>'s height: <%= a.height %> cm <br>
+	      		<%= a.name %>'s weight: <%= a.weight %> kg <br>
+	     <% end %>
+	</p>
+</p>
