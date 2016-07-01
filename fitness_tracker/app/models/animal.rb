@@ -1,4 +1,4 @@
-  include ConversionHelper
+include ConversionHelper
 
 class Animal < ActiveRecord::Base
 	# Returns imperial height value

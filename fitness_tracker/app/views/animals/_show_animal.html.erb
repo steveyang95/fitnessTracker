@@ -1,6 +1,21 @@
+<table border="2px solid black">
  <p>
+ 	<td style="width:300px; padding-left: 10px; padding-right: 5px">
+ 	<p> 
+	<% if not @metric %>
+		Imperial: <br>
+			<%= a.name %>'s height: <%= a.get_imperial_height(@metric) %> in <br>
+			<%= a.name %>'s weight: <%= a.get_imperial_weight(@metric) %> lbs <br>
+	<% else %>
+	      Metric: <br>
+	      	<%= a.name %>'s height: <%= a.height %> cm <br>
+	      	<%= a.name %>'s weight: <%= a.weight %> kg <br>
+	<% end %>
+</td>
+	</p>
  	<p>
- 	height: 
+ 	<td style="width:100px; padding-left: 10px; padding-right: 5px">
+ 	Height: 
  		<% if not a.taller_than_baby?(@baby, @metric)%>
     		<%=  image_tag("GreenBox.jpg", :alt=> "Green Box", :size => '10x10') %><br>
     	<% else %>
@@ -14,18 +29,8 @@
 		<% end %>
 
 	</p>
+</td>
 	<%= a.name %><br>
 	<%= a.description %><br>
-
-	<p> 
-		<% if not @metric %>
-			Imperial: <br>
-				<%= a.name %>'s height: <%= a.get_imperial_height(@metric) %> in <br>
-				<%= a.name %>'s weight: <%= a.get_imperial_weight(@metric) %> lbs <br>
-		<% else %>
-	      	Metric: <br>
-	      		<%= a.name %>'s height: <%= a.height %> cm <br>
-	      		<%= a.name %>'s weight: <%= a.weight %> kg <br>
-	     <% end %>
-	</p>
 </p>
+</table>
