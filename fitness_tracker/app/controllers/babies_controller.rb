@@ -1,6 +1,4 @@
 class BabiesController < ApplicationController
-  
-  include ConversionHelper
 
   def new
   	@baby = Baby.new
@@ -21,10 +19,10 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
-    @metric = is_metric?(params[:metric])
-    @height = convert_height(@baby, @metric)
-    @weight = convert_weight(@baby, @metric)
-    @temperature = convert_temperature(@baby, @metric)
+    @metric = Unit.is_metric?(params[:metric])
+    @height = Unit.get_correct_height(@baby, @metric)
+    @weight = Unit.get_correct_weight(@baby, @metric)
+    @temperature = Unit.get_correct_temperature(@baby, @metric)
     @animals = Animal.all
   end
 
