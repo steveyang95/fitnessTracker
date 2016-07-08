@@ -7,7 +7,7 @@
 <p>
 	<strong><%= @baby.first_name %></strong>
 	<strong><%= @baby.last_name %></strong>
-	<p> 
+	<p>
 		<% if not @metric %>
 			Imperial: <br>
 				<%= @baby.first_name %>'s height: <strong><%= @height %></strong> in <br>
@@ -31,5 +31,6 @@
 </tr>
 </table>
 
-<h7 align="center"><b><%= link_to "Go Home", root_path %>
-<%= link_to "Babies Index", babies_path %></b></h7>
+<br>
+<h3 align="center"><b><%= link_to "Go Home", root_path %>
+<%= link_to "Babies Index", babies_path %></b></h3>
