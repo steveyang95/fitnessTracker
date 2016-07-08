@@ -5,19 +5,19 @@
 	<tr>
 <td style="width:275px; padding-left: 10px;">
 <p>
-	<%= @baby.first_name %>
-	<%= @baby.last_name %>
+	<strong><%= @baby.first_name %></strong>
+	<strong><%= @baby.last_name %></strong>
 	<p> 
 		<% if not @metric %>
 			Imperial: <br>
-				<%= @baby.first_name %>'s height: <%= @height %> in <br>
-				<%= @baby.first_name %>'s weight: <%= @weight %> lbs <br>
-				<%= @baby.first_name %>'s temperature: <%= @temperature %> F degrees<br>
+				<%= @baby.first_name %>'s height: <strong><%= @height %></strong> in <br>
+				<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> lbs <br>
+				<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> F degrees<br>
 		<% else %>
 	      	Metric: <br>
-	      		<%= @baby.first_name %>'s height: <%= @height %> cm <br>
-	      		<%= @baby.first_name %>'s weight: <%= @weight %> kg <br>
-	      		<%= @baby.first_name %>'s temperature: <%= @temperature %> C degrees<br>
+	      		<%= @baby.first_name %>'s height: <strong><%= @height %></strong> cm <br>
+	      		<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> kg <br>
+	      		<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> C degrees<br>
 	     <% end %>
 	</p>
 </p>
