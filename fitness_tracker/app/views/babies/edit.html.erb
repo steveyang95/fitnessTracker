@@ -1,9 +1,9 @@
-<% provide(:title, 'Sign up') %>
-<h1 align="center">Sign up</h1>
+<% provide(:title, 'Edit baby') %>
+<h1 align="center">Update the baby</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for :baby, url: babies_path do |f| %>
+    <%= form_for @baby do |f| %>
       <%= f.label 'First Name' %>
       <%= f.text_field :first_name, class: 'form-control' %>
       <br>
@@ -33,7 +33,7 @@
       <%= f.number_field :temperature, class: 'form-control' %>
       <br>
 
-      <%= f.submit "Create Baby", class: "btn btn-primary" %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
