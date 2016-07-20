@@ -1,7 +1,5 @@
 class AnimalsController < ApplicationController
 
-	include ConversionHelper
-
   def new
     @animal = Animal.new
   end
@@ -21,9 +19,9 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    @metric = is_metric?(params[:metric])
-    @height = convert_height(@animal, @metric)
-    @weight = convert_weight(@animal, @metric)
+    @metric = Unit.is_metric?(params[:metric])
+    @height = Unit.get_correct_height(@animal, @metric)
+    @weight = Unit.get_correct_weight(@animal, @metric)
   end
 
   private
