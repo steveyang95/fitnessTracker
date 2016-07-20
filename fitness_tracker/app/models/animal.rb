@@ -19,4 +19,8 @@ class Animal < ActiveRecord::Base
 	def heavier_than_baby?(baby, metric)
 		Unit.get_correct_weight(self, metric) > Unit.get_correct_weight(baby, metric)
 	end
+
+	def get_image_name
+		self.name.split(' ').join("_").downcase
+	end
 end

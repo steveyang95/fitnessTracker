@@ -1,7 +1,8 @@
 <%= link_to "Metric", animal_path(@animal.id, metric: true) %>
 <%= link_to "Imperial", animal_path(@animal.id, metric: false) %>
 <p>
-	<%= @animal.name %><br>
+	<h3><%= @animal.name %><br></h3>
+	<%= image_tag("#{@animal.get_image_name}.jpg", :size => "400x300") %><br>
 	<%= @animal.description %><br>
 	<p> 
 		Height: <%= @animal.height %><br>
