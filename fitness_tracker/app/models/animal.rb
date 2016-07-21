@@ -4,7 +4,6 @@ class Animal < ActiveRecord::Base
 		Unit.get_correct_height(self, metric)
 	end
 
-
 	# Returns imperial weight value
 	def get_imperial_weight(metric)
 		Unit.get_correct_weight(self, metric)
