@@ -1,4 +1,5 @@
 class BabiesController < ApplicationController
+  include SortingHelper
 
   def new
   	@baby = Baby.new
@@ -27,7 +28,10 @@ class BabiesController < ApplicationController
   end
 
   def index
-    @babies = Baby.all
+    @babies = Baby.all.sort_by{ |baby| baby[:first_name] }.reverse
+    if sort_by_height? params[:height]
+      @babies = @babies.sort_by{ |baby| baby[:height] }
+    end
   end
 
   def show

@@ -1,15 +1,19 @@
 <h1>Listing Babies</h1>
  
-<h7 align="center"><b><%= link_to "Go Home", root_path %></b></h7>
+<h7 align="center"><b><%= link_to "Go Home", root_path %></b></h7><br>
+<td><%= link_to "Sort By Height", babies_path(height: true) %></td>
 
 <table>
   <tr>
-    <th>First Name / Last Name</th>
+    <th>First Name, Last Name</th>
+    <th>Height</th>
+    <th>Options</th>
   </tr>
  
   <% @babies.each do |baby| %>
     <tr>
       <td><%= link_to "#{baby.first_name} #{baby.last_name}", baby_path(baby.id, metric: baby.metric) %></td>
+      <td><%= baby.height %></td>
       <td><%= link_to "Edit", edit_baby_path(baby.id) %></td>
     </tr>
   <% end %>
